@@ -1,6 +1,7 @@
 import * as React from "react";
 import { TodosContext } from "../../todo-context";
 import "./todo-form.scss";
+import shortid from "shortid";
 
 export const TodoForm = () => {
   const { todos, setTodos } = React.useContext(TodosContext);
@@ -9,7 +10,7 @@ export const TodoForm = () => {
   const handleAddTodo = () => {
     if (task.trim() !== "") {
       const newTodo = {
-        id: todos.length,
+        id: shortid(),
         label: task,
         checked: false,
       };
